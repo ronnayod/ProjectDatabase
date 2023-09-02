@@ -15,6 +15,9 @@ if (isset($_REQUEST['act'])) {
     $act = null;
 }
 
+$total = 0; // Initialize the total variable
+$i = 0; // Initialize the $i variable
+
 if ($act == 'add' && !empty($p_id)) {
     if (!isset($_SESSION['shopping_cart'])) {
         $_SESSION['shopping_cart'] = array();
