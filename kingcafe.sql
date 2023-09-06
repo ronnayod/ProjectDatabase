@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2021 at 12:28 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Generation Time: Sep 06, 2023 at 09:12 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `cat_id` int(11) NOT NULL,
   `cat_name` varchar(99) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
@@ -55,7 +55,7 @@ CREATE TABLE `customer` (
   `lname` varchar(88) NOT NULL,
   `username` varchar(99) NOT NULL,
   `password` varchar(99) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
@@ -72,7 +72,8 @@ INSERT INTO `customer` (`c_id`, `fname`, `lname`, `username`, `password`) VALUES
 (17, 'h', 'h', 'h', '2510c39011c5be704182423e3a695e91'),
 (18, 'i', 'i', 'i', '865c0c0b4ab0e063e5caa3387c1a8741'),
 (19, 'j', 'j', 'j', '363b122c528f54df4a0446b6bab05515'),
-(23, 'abcd', 'abcd', 'abcd', 'e2fc714c4727ee9395f324cd2e7f331f');
+(23, 'abcd', 'abcd', 'abcd', 'e2fc714c4727ee9395f324cd2e7f331f'),
+(26, 'member', 'member', 'member', 'a510166163833c79aa703646f59c04bb');
 
 -- --------------------------------------------------------
 
@@ -86,14 +87,15 @@ CREATE TABLE `emp` (
   `lname` varchar(99) NOT NULL,
   `username` varchar(99) NOT NULL,
   `password` varchar(99) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `emp`
 --
 
 INSERT INTO `emp` (`e_id`, `fname`, `lname`, `username`, `password`) VALUES
-(1, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'admin2', 'admin2', 'admin2', 'admin2123');
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,7 @@ CREATE TABLE `product` (
   `p_price` int(11) NOT NULL,
   `p_detail` text NOT NULL,
   `p_pic` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
@@ -116,7 +118,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`p_id`, `cat_id`, `p_name`, `p_price`, `p_detail`, `p_pic`) VALUES
 ('111', 6, '111', 111, '<p>111</p>\r\n', 'Fruitcake-Loaf-Cake-close-up-of-cut-cake-and-slice-on-white-plate.jpg'),
-('asd', 6, 'test', 90, '', 'espessoW.png'),
+('asd', 6, 'test123', 90, '', 'espessoW.png'),
 ('BK_BRE', 10, 'ขนมปังกรอบ', 15, '<p>ขนมปังกรอบๆ กินคู่กับอะไรก็อร่อย</p>\r\n', '68-768x768.png'),
 ('BK_CHE', 10, 'ขนมปังชีสยืด', 25, '<p>ชีสยืดดดดดดดดดด พร้อมให้ลอง</p>\r\n', 'pnghut_ham-and-cheese-sandwich-toast-breakfast-baked-potato-bread_vZhHy5TE9e (1).png'),
 ('BK_HNT', 10, 'ฮันนี่โทสต์', 50, '<p>ฮันนี่โทสต์หอมกรุ่น พร้อมน้ำพึ่งจากไร้สดๆ และไอศครีมกลิ่นวนิลา</p>\r\n', 'pngkit_toast-png_1537921.png'),
@@ -178,7 +180,7 @@ CREATE TABLE `sale` (
   `c_id` int(11) NOT NULL,
   `e_id` int(11) NOT NULL,
   `datesave` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sale`
@@ -187,14 +189,13 @@ CREATE TABLE `sale` (
 INSERT INTO `sale` (`sale_id`, `c_id`, `e_id`, `datesave`) VALUES
 (169963609, 17, 1, '2020-11-03 10:55:29'),
 (274485955, 16, 1, '2020-11-03 10:54:09'),
-(516280754, 11, 1, '2020-11-03 10:49:25'),
 (546297621, 14, 1, '2020-11-03 10:52:02'),
 (576727311, 13, 1, '2020-11-03 10:50:23'),
 (790390532, 23, 1, '2020-11-06 02:22:25'),
 (1179527756, 19, 1, '2020-11-03 10:58:12'),
 (1224209254, 23, 1, '2020-11-06 01:29:00'),
 (1389359043, 7, 1, '2020-11-03 15:26:55'),
-(1829332581, 8, 1, '2020-11-03 10:46:41'),
+(1704168113, 24, 1, '2023-09-02 03:26:29'),
 (1832545552, 8, 1, '2020-11-05 05:42:03'),
 (1933788703, 15, 1, '2020-11-03 10:52:55'),
 (1988200151, 18, 1, '2020-11-03 10:56:58');
@@ -211,17 +212,13 @@ CREATE TABLE `sale_detail` (
   `p_id` varchar(99) NOT NULL,
   `p_amount` int(11) NOT NULL,
   `p_sell` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sale_detail`
 --
 
 INSERT INTO `sale_detail` (`id`, `sale_id`, `p_id`, `p_amount`, `p_sell`) VALUES
-(16, 1829332581, 'DC_LA_C', 1, 40),
-(17, 1829332581, 'DM_CHO_C', 1, 40),
-(20, 516280754, 'BK_CHE', 1, 25),
-(21, 516280754, 'CK_BRN', 1, 40),
 (22, 576727311, 'DM__CM_H', 1, 35),
 (23, 576727311, 'DT_MT_F', 1, 50),
 (24, 546297621, 'DC_CAP_C', 1, 40),
@@ -243,7 +240,11 @@ INSERT INTO `sale_detail` (`id`, `sale_id`, `p_id`, `p_amount`, `p_sell`) VALUES
 (42, 1224209254, 'DM_COA_C', 1, 40),
 (43, 1224209254, 'DC_LA_F', 1, 50),
 (44, 790390532, 'asd', 1, 90),
-(45, 790390532, 'DT_MGT_C', 1, 40);
+(45, 790390532, 'DT_MGT_C', 1, 40),
+(46, 1704168113, 'BK_HNT', 1, 50),
+(47, 1704168113, 'DM_NY_C', 1, 40),
+(48, 1704168113, 'BK_BRE', 1, 15),
+(49, 1704168113, 'CK_FUD', 1, 40);
 
 --
 -- Indexes for dumped tables
@@ -293,25 +294,25 @@ ALTER TABLE `sale_detail`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `emp`
 --
 ALTER TABLE `emp`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sale_detail`
 --
 ALTER TABLE `sale_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
